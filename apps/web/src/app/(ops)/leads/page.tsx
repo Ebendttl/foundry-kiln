@@ -41,29 +41,29 @@ export default function LeadsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <span className="label-mono text-foundry-orange block mb-1">Ops Portal</span>
-        <h1 className="heading-foundry text-3xl sm:text-4xl text-foundry-concrete">Public Leads</h1>
+        <span className="font-mono text-xs uppercase tracking-widest text-foundry-orange block mb-1">Ops Portal</span>
+        <h1 className="font-display font-bold text-3xl sm:text-4xl text-foundry-concrete uppercase tracking-tight">Public Leads</h1>
       </div>
 
-      <div className="border-2 border-border-subtle bg-surface-secondary" style={{ borderRadius: '2px' }}>
+      <div className="bg-surface-secondary border-t-4 border-t-border-subtle" style={{ borderRadius: '2px' }}>
         {inquiries.map((inquiry, i) => {
           const typeInfo = TYPE_LABELS[inquiry.type] || { label: inquiry.type, color: 'text-text-secondary' };
           return (
             <div key={inquiry.id} className={`p-6 ${i > 0 ? 'border-t border-border-subtle' : ''} space-y-4`}>
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <h3 className="font-display font-bold text-lg text-foundry-concrete uppercase">{inquiry.name}</h3>
-                  <span className={`font-mono text-[9px] px-2 py-0.5 border uppercase ${typeInfo.color}`} style={{ borderRadius: '2px' }}>
+                  <h3 className="font-display font-bold text-lg text-foundry-concrete uppercase tracking-tight">{inquiry.name}</h3>
+                  <span className={`font-mono text-[9px] px-2 py-0.5 border uppercase tracking-widest ${typeInfo.color}`} style={{ borderRadius: '2px' }}>
                     {typeInfo.label}
                   </span>
-                  <span className={`font-mono text-[9px] px-2 py-0.5 border uppercase ${STATUS_CLASSES[inquiry.status]}`} style={{ borderRadius: '2px' }}>
+                  <span className={`font-mono text-[9px] px-2 py-0.5 border uppercase tracking-widest ${STATUS_CLASSES[inquiry.status]}`} style={{ borderRadius: '2px' }}>
                     {inquiry.status}
                   </span>
                 </div>
                 <span className="font-mono text-xs text-text-secondary">{inquiry.date}</span>
               </div>
 
-              <p className="text-sm text-text-primary bg-surface-primary p-4 border border-border-subtle font-mono uppercase" style={{ borderRadius: '2px' }}>
+              <p className="font-body text-sm text-text-primary bg-surface-primary p-4 border-t-4 border-t-border-subtle leading-relaxed" style={{ borderRadius: '2px' }}>
                 {inquiry.message}
               </p>
 
@@ -72,21 +72,21 @@ export default function LeadsPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => updateStatus(inquiry.id, 'contacted')}
-                    className="px-3 py-1.5 border border-border-subtle font-mono text-[10px] uppercase text-text-secondary hover:text-foundry-concrete hover:border-text-secondary transition-all"
+                    className="px-3 py-1.5 border border-border-subtle font-mono text-[10px] uppercase tracking-widest text-text-secondary hover:text-foundry-concrete hover:border-text-secondary transition-all"
                     style={{ borderRadius: '2px' }}
                   >
                     Mark Contacted
                   </button>
                   <button
                     onClick={() => updateStatus(inquiry.id, 'converted')}
-                    className="px-3 py-1.5 border border-[#FF4B12] font-mono text-[10px] uppercase text-foundry-orange hover:bg-foundry-orange/10 transition-all"
+                    className="px-3 py-1.5 border border-[#FF4B12] font-mono text-[10px] uppercase tracking-widest text-foundry-orange hover:bg-foundry-orange/10 transition-all"
                     style={{ borderRadius: '2px' }}
                   >
                     Convert Lead
                   </button>
                   <button
                     onClick={() => updateStatus(inquiry.id, 'closed')}
-                    className="px-3 py-1.5 border border-border-subtle font-mono text-[10px] uppercase text-text-secondary/50 hover:text-text-secondary transition-all"
+                    className="px-3 py-1.5 border border-border-subtle font-mono text-[10px] uppercase tracking-widest text-text-secondary/50 hover:text-text-secondary transition-all"
                     style={{ borderRadius: '2px' }}
                   >
                     Close

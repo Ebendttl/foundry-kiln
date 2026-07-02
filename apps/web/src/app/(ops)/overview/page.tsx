@@ -79,38 +79,38 @@ export default function OverviewPage() {
       {/* Page header */}
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div>
-          <span className="label-mono text-foundry-orange block mb-1">
+          <span className="font-mono text-xs uppercase tracking-widest text-foundry-orange block mb-1">
             {new Date().toLocaleDateString('en-NG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
-          <h1 className="heading-foundry text-3xl sm:text-4xl text-foundry-concrete">Overview</h1>
+          <h1 className="font-display font-bold text-3xl sm:text-4xl text-foundry-concrete uppercase tracking-tight">Overview</h1>
         </div>
-        <button className="btn-foundry text-sm">+ Record Entry</button>
+        <button className="btn-foundry text-sm">RECORD ENTRY</button>
       </div>
 
       {/* KPI Cards — Top Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Total Income */}
-        <div className="p-5 border-2 border-border-subtle bg-surface-secondary" style={{ borderRadius: '2px' }}>
-          <span className="label-mono text-text-secondary block mb-2">Today&apos;s Income</span>
-          <div className="price-mono text-2xl text-green-400 mb-1">
+        <div className="p-6 bg-surface-secondary border-t-4 border-t-border-subtle" style={{ borderRadius: '2px' }}>
+          <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest block mb-2">Today&apos;s Income</span>
+          <div className="font-mono font-bold text-2xl text-green-400 mb-1">
             <AnimatedNumber value={todayData.totalIncome} prefix="₦" />
           </div>
           <span className="font-mono text-[10px] text-text-secondary">{todayData.transactionCount} transactions</span>
         </div>
 
         {/* Total Expense */}
-        <div className="p-5 border-2 border-border-subtle bg-surface-secondary" style={{ borderRadius: '2px' }}>
-          <span className="label-mono text-text-secondary block mb-2">Today&apos;s Expense</span>
-          <div className="price-mono text-2xl text-line-red mb-1">
+        <div className="p-6 bg-surface-secondary border-t-4 border-t-border-subtle" style={{ borderRadius: '2px' }}>
+          <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest block mb-2">Today&apos;s Expense</span>
+          <div className="font-mono font-bold text-2xl text-line-red mb-1">
             <AnimatedNumber value={todayData.totalExpense} prefix="₦" />
           </div>
           <span className="font-mono text-[10px] text-text-secondary">Across all units</span>
         </div>
 
         {/* Net Profit */}
-        <div className="p-5 border-2 border-foundry-orange bg-surface-secondary" style={{ borderRadius: '2px' }}>
-          <span className="label-mono text-foundry-orange block mb-2">Net Profit</span>
-          <div className="price-mono text-2xl text-foundry-orange mb-1">
+        <div className="p-6 bg-surface-secondary border-t-4 border-t-foundry-orange" style={{ borderRadius: '2px' }}>
+          <span className="font-mono text-[10px] text-foundry-orange uppercase tracking-widest block mb-2">Net Profit</span>
+          <div className="font-mono font-bold text-2xl text-foundry-orange mb-1">
             <AnimatedNumber value={todayData.netProfit} prefix="₦" />
           </div>
           <span className={`font-mono text-[10px] ${isUp ? 'text-green-400' : 'text-line-red'}`}>
@@ -119,22 +119,22 @@ export default function OverviewPage() {
         </div>
 
         {/* Profit Margin */}
-        <div className="p-5 border-2 border-border-subtle bg-surface-secondary" style={{ borderRadius: '2px' }}>
-          <span className="label-mono text-text-secondary block mb-2">Profit Margin</span>
-          <div className="price-mono text-2xl text-foundry-concrete mb-1">{profitMargin}%</div>
+        <div className="p-6 bg-surface-secondary border-t-4 border-t-border-subtle" style={{ borderRadius: '2px' }}>
+          <span className="font-mono text-[10px] text-text-secondary uppercase tracking-widest block mb-2">Profit Margin</span>
+          <div className="font-mono font-bold text-2xl text-foundry-concrete mb-1">{profitMargin}%</div>
           <span className="font-mono text-[10px] text-text-secondary">Today&apos;s efficiency</span>
         </div>
       </div>
 
       {/* Per-Unit Breakdown */}
-      <div>
-        <h2 className="heading-foundry text-xl text-foundry-concrete mb-4">By Unit</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="space-y-4">
+        <h2 className="font-display font-bold text-xl text-foundry-concrete uppercase tracking-tight">By Unit</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {todayData.units.map((unit) => (
             <div
               key={unit.key}
-              className="p-5 border-2 bg-surface-secondary transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5"
-              style={{ borderRadius: '2px', borderColor: unit.color, boxShadow: `4px 4px 0px 0px ${unit.color}20` }}
+              className="p-6 bg-surface-secondary transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5"
+              style={{ borderRadius: '2px', borderTop: `4px solid ${unit.color}`, boxShadow: `4px 4px 0px 0px ${unit.color}15` }}
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2.5 h-2.5" style={{ backgroundColor: unit.color, borderRadius: '1px' }} />
@@ -143,20 +143,20 @@ export default function OverviewPage() {
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <span className="label-mono text-text-secondary block mb-1">Income</span>
-                  <span className="price-mono text-lg text-green-400">{formatNaira(unit.income)}</span>
+                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest block mb-1">Income</span>
+                  <span className="font-mono font-bold text-lg text-green-400">{formatNaira(unit.income)}</span>
                 </div>
                 <div>
-                  <span className="label-mono text-text-secondary block mb-1">Expense</span>
-                  <span className="price-mono text-lg text-line-red">{formatNaira(unit.expense)}</span>
+                  <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest block mb-1">Expense</span>
+                  <span className="font-mono font-bold text-lg text-line-red">{formatNaira(unit.expense)}</span>
                 </div>
               </div>
 
               <div className="divider-tear" style={{ margin: '0.75rem 0' }} />
 
               <div className="flex items-center justify-between">
-                <span className="label-mono text-text-secondary">Net</span>
-                <span className="price-mono text-lg" style={{ color: unit.color }}>
+                <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest">Net</span>
+                <span className="font-mono font-bold text-lg" style={{ color: unit.color }}>
                   {formatNaira(unit.income - unit.expense)}
                 </span>
               </div>
@@ -175,9 +175,9 @@ export default function OverviewPage() {
       </div>
 
       {/* Recent Activity */}
-      <div>
-        <h2 className="heading-foundry text-xl text-foundry-concrete mb-4">Recent Activity</h2>
-        <div className="border-2 border-border-subtle bg-surface-secondary" style={{ borderRadius: '2px' }}>
+      <div className="space-y-4">
+        <h2 className="font-display font-bold text-xl text-foundry-concrete uppercase tracking-tight">Recent Activity</h2>
+        <div className="bg-surface-secondary border-t-4 border-t-border-subtle" style={{ borderRadius: '2px' }}>
           {[
             { time: '2:30 PM', desc: 'Studio booking completed — Podcast Room (Tola A.)', amount: 45000, type: 'income', unit: 'The Booth', color: '#7B2FF7' },
             { time: '1:15 PM', desc: 'Merch order moved to "in production" — 50x T-Shirts', amount: 200000, type: 'income', unit: 'The Line', color: '#E4002B' },
@@ -188,8 +188,8 @@ export default function OverviewPage() {
             <div key={i} className={`flex items-center gap-4 p-4 ${i > 0 ? 'border-t border-border-subtle' : ''}`}>
               <span className="font-mono text-[10px] text-text-secondary w-16 flex-shrink-0">{activity.time}</span>
               <span className="w-2 h-2 flex-shrink-0" style={{ backgroundColor: activity.color, borderRadius: '1px' }} />
-              <span className="text-sm text-text-primary flex-1 truncate">{activity.desc}</span>
-              <span className={`price-mono text-sm ${activity.type === 'income' ? 'text-green-400' : 'text-line-red'}`}>
+              <span className="font-body text-sm text-text-primary flex-1 truncate">{activity.desc}</span>
+              <span className={`font-mono text-sm ${activity.type === 'income' ? 'text-green-400' : 'text-line-red'}`}>
                 {activity.type === 'income' ? '+' : '-'}{formatNaira(activity.amount)}
               </span>
             </div>
