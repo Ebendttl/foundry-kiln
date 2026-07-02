@@ -52,7 +52,7 @@ function FloorHeader() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-4">
             {[
               { href: '/the-booth', label: 'The Booth', color: 'text-booth-violet' },
               { href: '/the-line', label: 'The Line', color: 'text-line-red' },
@@ -64,7 +64,7 @@ function FloorHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-2 font-mono text-xs uppercase tracking-widest transition-colors duration-150 hover:text-foundry-orange ${
+                className={`px-3 py-2 font-body text-sm uppercase tracking-wider font-semibold transition-colors duration-150 hover:text-foundry-orange ${
                   link.color || 'text-text-secondary'
                 }`}
               >

@@ -330,11 +330,10 @@ body {
   animation: glitch 200ms linear;
 }
 
-/* ── Section headings (Space Grotesk, uppercase) ── */
+/* ── Section headings (Space Grotesk, mixed case) ── */
 .heading-foundry {
   font-family: var(--font-display);
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
