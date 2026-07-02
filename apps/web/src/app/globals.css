@@ -280,12 +280,13 @@ body {
   background-color: var(--color-foundry-orange);
   color: var(--color-foundry-black);
   font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.8125rem;
+  font-weight: 600;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.5rem 0;
-  border-top: 2px solid var(--color-foundry-black);
+  letter-spacing: 0.08em;
+  height: 34px;
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid var(--color-foundry-black);
 }
 
