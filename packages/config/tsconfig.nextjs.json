@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }],
+    "jsx": "preserve",
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@foundry-kiln/ui/*": ["../../packages/ui/src/*"],
+      "@foundry-kiln/shared/*": ["../../packages/shared/src/*"],
+      "@foundry-kiln/database": ["../../packages/database/src/index.ts"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
+}

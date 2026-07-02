@@ -1,0 +1,6 @@
+{
+  "name": "@foundry-kiln/config",
+  "version": "0.0.1",
+  "private": true,
+  "files": ["tsconfig.*.json", "eslint.config.mjs", "tailwind.config.ts", "prettier.config.mjs"]
+}
