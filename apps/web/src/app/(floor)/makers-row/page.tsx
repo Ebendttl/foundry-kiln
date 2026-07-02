@@ -1,10 +1,6 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+'use client';
 
-export const metadata: Metadata = {
-  title: "Maker's Row — Expansion",
-  description: "Kiln's expansion units coming soon to the Foundry floor: The Deck, The Crate, and The Bay.",
-};
+import Link from 'next/link';
 
 export default function MakersRowPage() {
   const futureUnits = [
