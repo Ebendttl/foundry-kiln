@@ -46,39 +46,69 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
 
   if (submitted) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto px-4">
-          <div className="w-16 h-16 bg-roast-caramel border-2 border-foundry-black mx-auto mb-6 flex items-center justify-center" style={{ borderRadius: '2px' }}>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EDEBE6" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <div className="min-h-[60vh] flex items-center justify-center bg-[#3B2314] py-24">
+        <div className="text-center max-w-md mx-auto px-6 space-y-6">
+          <div className="w-16 h-16 bg-[#C08A3E] border-2 border-foundry-black mx-auto flex items-center justify-center" style={{ borderRadius: '2px' }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3B2314" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-4">Subscription Started</h2>
-          <p className="text-text-secondary mb-6">We have received your subscription setup! We will send details to confirm your delivery schedule via WhatsApp.</p>
-          <button onClick={() => setSubmitted(false)} className="btn-foundry" style={{ backgroundColor: '#C08A3E' }}>Manage Subscription</button>
+          <h2 className="font-display font-bold text-3xl text-foundry-concrete uppercase">Subscription Started</h2>
+          <p className="font-body text-base text-[#EDEBE6]/80">We have received your coffee subscription setup. We will reach out via WhatsApp to finalize your schedules and delivery details.</p>
+          <button onClick={() => setSubmitted(false)} className="btn-foundry" style={{ backgroundColor: '#C08A3E', color: '#3B2314', borderColor: '#C08A3E' }}>
+            MANAGE SUBSCRIPTION
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <>
+    <div className="bg-[#3B2314] text-[#EDEBE6]">
       {/* Hero */}
-      <section className="bg-surface-primary py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="tag-unit text-roast-caramel border-roast-caramel mb-4">The Roast</div>
-              <h1 className="heading-foundry text-5xl lg:text-6xl text-foundry-concrete mb-4">
-                Fresh roast.<br /><span className="text-roast-caramel">Direct to your door.</span>
+      <section className="relative overflow-hidden py-24 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 space-y-8">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#C08A3E] px-2.5 py-1 border border-[#C08A3E]" style={{ borderRadius: '2px' }}>
+                  THE ROAST
+                </span>
+              </div>
+              <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.9] text-[#EDEBE6]">
+                Fresh roast.<br /><span className="text-[#C08A3E]">Direct to your door.</span>
               </h1>
-              <p className="text-text-secondary text-lg max-w-md mb-8">Specialty coffee beans sourced ethically and roasted weekly on our Lagos production floor.</p>
-              <a href="#subscribe-now" className="btn-foundry" style={{ backgroundColor: '#C08A3E' }}>Start Subscription</a>
+              <p className="font-body text-lg sm:text-xl text-[#EDEBE6]/80 max-w-xl leading-relaxed">
+                Single-origin specialty coffee beans sourced ethically and micro-roasted weekly on our Lagos production floor.
+              </p>
+              <div className="pt-4">
+                <a href="#subscribe-now" className="btn-foundry" style={{ backgroundColor: '#C08A3E', color: '#3B2314', borderColor: '#C08A3E' }}>
+                  START SUBSCRIPTION
+                </a>
+              </div>
             </div>
-            <div className="relative aspect-[4/3]">
-              <div className="absolute inset-0 bg-surface-tertiary border-2 border-roast-caramel overflow-hidden" style={{ clipPath: 'polygon(0 5%, 95% 0, 100% 95%, 95% 100%, 0 95%)' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-roast-caramel/20 via-transparent to-foundry-black/60" />
-                <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(192,138,62,0.12) 1px, transparent 1px)', backgroundSize: '6px 6px' }} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#C08A3E" strokeWidth="1.5" opacity="0.5"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            <div className="relative lg:col-span-5">
+              <div className="relative aspect-[4/3] w-full">
+                <div className="absolute inset-0 bg-[#4D311E] border-t-4 border-[#C08A3E] overflow-hidden" style={{ borderRadius: '2px' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/the-roast.png"
+                    alt="The Roast Specialty Coffee Beans"
+                    className="w-full h-full object-cover opacity-60 filter grayscale contrast-125 mix-blend-luminosity"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B2314] via-transparent to-transparent opacity-80" />
+                  
+                  {/* Halftone Dot Overlay Pattern */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage: `radial-gradient(circle, rgba(192,138,62,0.2) 1.5px, transparent 1.5px)`,
+                      backgroundSize: '8px 8px',
+                    }}
+                  />
+                  <div className="absolute bottom-6 left-6 z-10">
+                    <span className="font-mono text-[10px] text-[#C08A3E] uppercase tracking-widest bg-foundry-black/90 px-2 py-0.5 border border-[#C08A3E]/30" style={{ borderRadius: '2px' }}>
+                      MICRO-ROASTED WEEKLY
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,31 +116,48 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
         </div>
       </section>
 
-      <div className="divider-foundry max-w-7xl mx-auto" />
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <hr className="border-[#C08A3E]/20" />
+      </div>
 
       {/* Featured Menu */}
-      <section className="py-16 bg-surface-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="label-mono text-roast-caramel block mb-3">Fresh Batches</span>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-10">Our coffee lineup</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="py-24 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-16">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#C08A3E] block mb-3 font-semibold">01 / SEASONAL BATCHES</span>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl text-[#EDEBE6] tracking-tight">Our Coffee Lineup</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {menuItems.map((item) => (
               <div
                 key={item.id}
-                className="p-6 border-2 border-border-subtle bg-surface-secondary flex flex-col justify-between"
-                style={{ borderRadius: '2px' }}
+                className="flex flex-col justify-between bg-[#4D311E] border-t-4 border-t-[#C08A3E] transition-all duration-150"
+                style={{ borderRadius: '2px', minHeight: '380px' }}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-[10px] text-roast-caramel uppercase tracking-widest">{item.origin}</span>
-                    <span className="label-mono text-text-secondary px-2 py-0.5 bg-surface-tertiary border border-border-subtle">{item.roast_level} roast</span>
+                {/* Visual section */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#3B2314] border-b border-[#C08A3E]/20">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/the-roast.png"
+                    alt={item.name}
+                    className="w-full h-full object-cover filter brightness-[0.7] grayscale contrast-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-[#3B2314]/90 px-2 py-0.5 border border-[#C08A3E]/30" style={{ borderRadius: '2px' }}>
+                    <span className="font-mono text-[9px] text-[#C08A3E] uppercase tracking-wider">{item.roast_level} roast</span>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-foundry-concrete uppercase mb-2">{item.name}</h3>
-                  <p className="text-sm text-text-secondary mb-6">{item.description}</p>
                 </div>
-                <div className="flex justify-between items-baseline pt-4 border-t border-border-subtle">
-                  <span className="label-mono text-text-secondary">Retail Bag</span>
-                  <span className="price-mono text-xl text-roast-caramel">{formatNaira(item.price)}</span>
+
+                {/* Content text */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <div className="font-mono text-[10px] text-[#C08A3E] uppercase tracking-widest">{item.origin}</div>
+                    <h3 className="font-display font-bold text-xl text-[#EDEBE6] uppercase tracking-tight">{item.name}</h3>
+                    <p className="font-body text-sm text-[#EDEBE6]/70 leading-relaxed line-clamp-2">{item.description}</p>
+                  </div>
+                  <div className="flex justify-between items-baseline pt-4 border-t border-[#C08A3E]/20">
+                    <span className="font-mono text-[10px] text-[#EDEBE6]/60 uppercase">Retail Bag</span>
+                    <span className="font-mono font-bold text-xl text-[#C08A3E]">{formatNaira(item.price)}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -119,27 +166,29 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
       </section>
 
       {/* Subscription Configurator */}
-      <section id="subscribe-now" className="py-16 bg-surface-secondary border-t-2 border-border-subtle">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="label-mono text-roast-caramel block mb-3">Configure Subscription</span>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-8">Coffee Subscription</h2>
+      <section id="subscribe-now" className="py-24 lg:py-40 bg-[#4D311E] border-t border-b border-[#C08A3E]/20">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#C08A3E] block mb-3 font-semibold">02 / FLAVOR SUBSCRIPTION PROFILE</span>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl text-[#EDEBE6] tracking-tight">Configure Your Subscription</h2>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-[#3B2314] p-6 lg:p-8 border-t-4 border-t-[#C08A3E]" style={{ borderRadius: '2px' }}>
             {/* Left Column: Selections */}
             <div className="space-y-6">
               {/* Frequency selection */}
-              <div>
-                <label className="input-label">Frequency</label>
+              <div className="space-y-3">
+                <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85">Frequency</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(['weekly', 'biweekly', 'monthly'] as const).map((freq) => (
                     <button
                       key={freq}
                       type="button"
                       onClick={() => setPlan(freq)}
-                      className={`p-3 border-2 font-mono text-xs uppercase tracking-wider transition-all duration-150 ${
+                      className={`p-3 border-t-4 font-mono text-xs uppercase tracking-widest transition-all duration-150 ${
                         plan === freq
-                          ? 'border-roast-caramel bg-roast-caramel/10 text-foundry-concrete'
-                          : 'border-border-subtle bg-surface-tertiary text-text-secondary hover:border-roast-caramel/50'
+                          ? 'border-t-[#C08A3E] bg-[#C08A3E]/20 text-[#EDEBE6] font-bold'
+                          : 'border-t-[#C08A3E]/20 bg-[#4D311E] text-[#EDEBE6]/60 hover:border-t-[#C08A3E]/50'
                       }`}
                       style={{ borderRadius: '2px' }}
                     >
@@ -150,18 +199,18 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
               </div>
 
               {/* Bag size */}
-              <div>
-                <label className="input-label">Bag Size</label>
+              <div className="space-y-3">
+                <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85">Bag Size</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(['250g', '500g', '1kg'] as const).map((size) => (
                     <button
                       key={size}
                       type="button"
                       onClick={() => setBagSize(size)}
-                      className={`p-3 border-2 font-mono text-xs uppercase tracking-wider transition-all duration-150 ${
+                      className={`p-3 border-t-4 font-mono text-xs uppercase tracking-widest transition-all duration-150 ${
                         bagSize === size
-                          ? 'border-roast-caramel bg-roast-caramel/10 text-foundry-concrete'
-                          : 'border-border-subtle bg-surface-tertiary text-text-secondary hover:border-roast-caramel/50'
+                          ? 'border-t-[#C08A3E] bg-[#C08A3E]/20 text-[#EDEBE6] font-bold'
+                          : 'border-t-[#C08A3E]/20 bg-[#4D311E] text-[#EDEBE6]/60 hover:border-t-[#C08A3E]/50'
                       }`}
                       style={{ borderRadius: '2px' }}
                     >
@@ -172,18 +221,18 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
               </div>
 
               {/* Grind type */}
-              <div>
-                <label className="input-label">Grind Type</label>
+              <div className="space-y-3">
+                <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85">Grind Type</label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {(['whole_bean', 'french_press', 'filter', 'espresso', 'moka_pot'] as const).map((grind) => (
                     <button
                       key={grind}
                       type="button"
                       onClick={() => setGrindType(grind)}
-                      className={`p-3 border-2 font-mono text-xs uppercase tracking-wider transition-all duration-150 ${
+                      className={`p-3 border-t-4 font-mono text-[10px] uppercase tracking-wider transition-all duration-150 ${
                         grindType === grind
-                          ? 'border-roast-caramel bg-roast-caramel/10 text-foundry-concrete'
-                          : 'border-border-subtle bg-surface-tertiary text-text-secondary hover:border-roast-caramel/50'
+                          ? 'border-t-[#C08A3E] bg-[#C08A3E]/20 text-[#EDEBE6] font-bold'
+                          : 'border-t-[#C08A3E]/20 bg-[#4D311E] text-[#EDEBE6]/60 hover:border-t-[#C08A3E]/50'
                       }`}
                       style={{ borderRadius: '2px' }}
                     >
@@ -194,18 +243,18 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
               </div>
 
               {/* Preferred roast */}
-              <div>
-                <label className="input-label">Preferred Roast profile</label>
+              <div className="space-y-3">
+                <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85">Preferred Roast Profile</label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {(['light', 'medium', 'dark', 'surprise_me'] as const).map((roast) => (
                     <button
                       key={roast}
                       type="button"
                       onClick={() => setPreferredRoast(roast)}
-                      className={`p-3 border-2 font-mono text-xs uppercase tracking-wider transition-all duration-150 ${
+                      className={`p-3 border-t-4 font-mono text-[10px] uppercase tracking-wider transition-all duration-150 ${
                         preferredRoast === roast
-                          ? 'border-roast-caramel bg-roast-caramel/10 text-foundry-concrete'
-                          : 'border-border-subtle bg-surface-tertiary text-text-secondary hover:border-roast-caramel/50'
+                          ? 'border-t-[#C08A3E] bg-[#C08A3E]/20 text-[#EDEBE6] font-bold'
+                          : 'border-t-[#C08A3E]/20 bg-[#4D311E] text-[#EDEBE6]/60 hover:border-t-[#C08A3E]/50'
                       }`}
                       style={{ borderRadius: '2px' }}
                     >
@@ -217,49 +266,51 @@ export default function RoastClient({ menuItems }: { menuItems: MenuItem[] }) {
             </div>
 
             {/* Right Column: Cost and Details */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               {/* Cost card */}
-              <div className="p-6 border-2 border-roast-caramel bg-surface-primary animate-count-up" style={{ borderRadius: '2px' }}>
+              <div className="p-6 border-t-4 border-[#C08A3E] bg-[#4D311E]" style={{ borderRadius: '2px' }}>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="label-mono text-text-secondary">Subscription Cost</span>
-                  <span className="price-mono text-3xl text-roast-caramel">{formatNaira(subscriptionPrice)}</span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#EDEBE6]/60">Subscription Cost</span>
+                  <span className="font-mono font-bold text-3xl text-[#C08A3E]">{formatNaira(subscriptionPrice)}</span>
                 </div>
-                <div className="divider-tear" style={{ margin: '0.75rem 0' }} />
-                <div className="space-y-1.5 font-mono text-xs text-text-secondary uppercase">
-                  <div>Frequency: {plan}</div>
-                  <div>Bag Size: {bagSize}</div>
-                  <div>Grind: {grindType.replace('_', ' ')}</div>
-                  <div>Roast Style: {preferredRoast.replace('_', ' ')}</div>
+                <div className="divider-tear" style={{ margin: '0.75rem 0', borderColor: 'rgba(192,138,62,0.2)' }} />
+                <div className="space-y-1.5 font-body text-xs text-[#EDEBE6]/85">
+                  <div>Frequency: <span className="font-mono uppercase text-[#C08A3E]">{plan}</span></div>
+                  <div>Bag Size: <span className="font-mono uppercase text-[#C08A3E]">{bagSize}</span></div>
+                  <div>Grind Style: <span className="font-mono uppercase text-[#C08A3E]">{grindType.replace('_', ' ')}</span></div>
+                  <div>Roast Preference: <span className="font-mono uppercase text-[#C08A3E]">{preferredRoast.replace('_', ' ')}</span></div>
                 </div>
               </div>
 
               {/* Subscribe form */}
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="input-label">Full Name *</label>
-                  <input type="text" required className="input-foundry" placeholder="Your name" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} />
+                  <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85 mb-2">FULL NAME *</label>
+                  <input type="text" required className="input-foundry border-[#C08A3E]/30 bg-[#4D311E] text-[#EDEBE6] focus:ring-2 focus:ring-[#C08A3E] focus:border-[#C08A3E]" placeholder="Your name" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="input-label">Phone *</label>
-                    <input type="tel" required className="input-foundry" placeholder="+234..." value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                    <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85 mb-2">PHONE *</label>
+                    <input type="tel" required className="input-foundry border-[#C08A3E]/30 bg-[#4D311E] text-[#EDEBE6] focus:ring-2 focus:ring-[#C08A3E] focus:border-[#C08A3E]" placeholder="+234..." value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                   </div>
                   <div>
-                    <label className="input-label">Email</label>
-                    <input type="email" className="input-foundry" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                    <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85 mb-2">EMAIL</label>
+                    <input type="email" className="input-foundry border-[#C08A3E]/30 bg-[#4D311E] text-[#EDEBE6] focus:ring-2 focus:ring-[#C08A3E] focus:border-[#C08A3E]" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                   </div>
                 </div>
                 <div>
-                  <label className="input-label">Delivery Address *</label>
-                  <textarea required rows={2} className="input-foundry" placeholder="Where should we deliver?" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
+                  <label className="block font-body text-sm font-semibold text-[#EDEBE6]/85 mb-2">DELIVERY ADDRESS *</label>
+                  <textarea required rows={2} className="input-foundry border-[#C08A3E]/30 bg-[#4D311E] text-[#EDEBE6] focus:ring-2 focus:ring-[#C08A3E] focus:border-[#C08A3E]" placeholder="Where should we deliver?" value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
                 </div>
-                <button type="submit" className="btn-foundry w-full" style={{ backgroundColor: '#C08A3E' }}>Start Subscription</button>
-                <p className="font-mono text-[10px] text-text-secondary text-center uppercase tracking-wider">Free delivery in central Lagos. Cancel anytime.</p>
+                <button type="submit" className="btn-foundry w-full text-[#3B2314] font-mono text-sm font-semibold tracking-wider hover:bg-[#3B2314] hover:text-[#C08A3E] hover:border-[#C08A3E] transition-all duration-150 py-3" style={{ backgroundColor: '#C08A3E', borderColor: '#C08A3E' }}>
+                  START SUBSCRIPTION
+                </button>
+                <p className="font-mono text-[10px] text-[#EDEBE6]/50 text-center uppercase tracking-widest mt-3">Free dispatch delivery inside metropolitan Lagos. Cancel anytime.</p>
               </form>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

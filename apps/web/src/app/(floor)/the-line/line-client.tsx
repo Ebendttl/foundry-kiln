@@ -51,39 +51,69 @@ export default function LineClient({ products }: { products: Product[] }) {
 
   if (submitted) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto px-4">
-          <div className="w-16 h-16 bg-line-red border-2 border-foundry-black mx-auto mb-6 flex items-center justify-center" style={{ borderRadius: '2px' }}>
+      <div className="min-h-[60vh] flex items-center justify-center bg-surface-primary py-24">
+        <div className="text-center max-w-md mx-auto px-6 space-y-6">
+          <div className="w-16 h-16 bg-line-red border-2 border-foundry-black mx-auto flex items-center justify-center" style={{ borderRadius: '2px' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EDEBE6" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-4">Quote Request Sent</h2>
-          <p className="text-text-secondary mb-6">We&apos;ll get back to you with a final quote within 24 hours.</p>
-          <button onClick={() => { setSubmitted(false); setSelectedProduct(null); setQuantity(10); }} className="btn-foundry">Get Another Quote</button>
+          <h2 className="font-display font-bold text-3xl text-foundry-concrete uppercase">Quote Request Sent</h2>
+          <p className="font-body text-base text-text-secondary">We&apos;ll get back to you with a finalized digital invoice and proof mockup within 24 hours.</p>
+          <button onClick={() => { setSubmitted(false); setSelectedProduct(null); setQuantity(10); }} className="btn-foundry" style={{ backgroundColor: '#E4002B', color: '#fff', borderColor: '#E4002B' }}>
+            GET ANOTHER QUOTE
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <>
+    <div className="bg-surface-primary">
       {/* Hero */}
-      <section className="bg-surface-primary py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="tag-unit text-line-red border-line-red mb-4">The Line</div>
-              <h1 className="heading-foundry text-5xl lg:text-6xl text-foundry-concrete mb-4">
+      <section className="relative overflow-hidden py-24 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 space-y-8">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-line-red px-2.5 py-1 border border-line-red" style={{ borderRadius: '2px' }}>
+                  THE LINE
+                </span>
+              </div>
+              <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.9] text-foundry-concrete">
                 Your design.<br /><span className="text-line-red">Our production floor.</span>
               </h1>
-              <p className="text-text-secondary text-lg max-w-md mb-8">Custom t-shirts, hoodies, stickers, business cards, and posters — with bulk pricing that rewards volume.</p>
-              <a href="#pricing-calculator" className="btn-foundry" style={{ backgroundColor: '#E4002B' }}>Get a Quote</a>
+              <p className="font-body text-lg sm:text-xl text-text-secondary max-w-xl leading-relaxed">
+                Custom screen-printed apparel, heavy cotton hoodies, die-cut sticker sheets, business cards, and display posters. Engineered for volume runs.
+              </p>
+              <div className="pt-4">
+                <a href="#pricing-calculator" className="btn-foundry" style={{ backgroundColor: '#E4002B', color: '#fff', borderColor: '#E4002B' }}>
+                  CALCULATE PRICING
+                </a>
+              </div>
             </div>
-            <div className="relative aspect-[4/3]">
-              <div className="absolute inset-0 bg-surface-tertiary border-2 border-line-red overflow-hidden" style={{ clipPath: 'polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%)' }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-line-red/20 via-transparent to-foundry-black/60" />
-                <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(228,0,43,0.12) 1px, transparent 1px)', backgroundSize: '6px 6px' }} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E4002B" strokeWidth="1.5" opacity="0.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <div className="relative lg:col-span-5">
+              <div className="relative aspect-[4/3] w-full">
+                <div className="absolute inset-0 bg-surface-tertiary border-t-4 border-line-red overflow-hidden" style={{ borderRadius: '2px' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/the-line.png"
+                    alt="The Line Printing Workshop"
+                    className="w-full h-full object-cover opacity-60 filter grayscale contrast-125 mix-blend-luminosity"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foundry-black via-transparent to-transparent opacity-80" />
+                  
+                  {/* Halftone Dot Overlay Pattern */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage: `radial-gradient(circle, rgba(228,0,43,0.15) 1.5px, transparent 1.5px)`,
+                      backgroundSize: '8px 8px',
+                    }}
+                  />
+                  <div className="absolute bottom-6 left-6 z-10">
+                    <span className="font-mono text-[10px] text-line-red uppercase tracking-widest bg-foundry-black/90 px-2 py-0.5 border border-line-red/30" style={{ borderRadius: '2px' }}>
+                      MERCH RUN (APPAREL)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,32 +121,53 @@ export default function LineClient({ products }: { products: Product[] }) {
         </div>
       </section>
 
-      <div className="divider-foundry max-w-7xl mx-auto" />
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <hr className="border-border-subtle" />
+      </div>
 
       {/* Product Grid */}
-      <section className="py-16 bg-surface-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="label-mono text-line-red block mb-3">Products</span>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-10">What we print</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-24 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-16">
+            <span className="font-mono text-xs uppercase tracking-widest text-line-red block mb-3 font-semibold">01 / MERCHANDISE CATALOG</span>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl text-foundry-concrete tracking-tight">What We Print</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <button
                 key={product.id}
                 onClick={() => { setSelectedProduct(product); setQuantity(product.price_breaks[0]?.min_qty || 10); }}
-                className={`text-left p-6 border-2 transition-all duration-150 ${
+                className={`text-left flex flex-col justify-between bg-surface-secondary border-t-4 transition-all duration-150 ${
                   selectedProduct?.id === product.id
-                    ? 'border-line-red shadow-stamp-red bg-surface-tertiary -translate-x-0.5 -translate-y-0.5'
-                    : 'border-border-subtle bg-surface-secondary hover:border-line-red'
+                    ? 'border-t-line-red shadow-stamp-red bg-surface-tertiary -translate-x-0.5 -translate-y-0.5'
+                    : 'border-t-border-subtle hover:border-t-line-red/55'
                 }`}
-                style={{ borderRadius: '2px' }}
+                style={{ borderRadius: '2px', minHeight: '380px' }}
               >
-                <div className="font-mono text-[10px] text-line-red uppercase tracking-widest mb-3">{CATEGORY_LABELS[product.category] || product.category}</div>
-                <h3 className="font-display font-bold text-lg text-foundry-concrete uppercase mb-2">{product.name}</h3>
-                <p className="text-sm text-text-secondary mb-4 line-clamp-2">{product.description}</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="label-mono text-text-secondary">From</span>
-                  <span className="price-mono text-xl text-line-red">{formatNaira(product.price_breaks[product.price_breaks.length - 1]?.price || product.base_price)}</span>
-                  <span className="label-mono text-text-secondary">/unit</span>
+                {/* Image top container */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface-tertiary border-b border-border-subtle">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/the-line.png"
+                    alt={product.name}
+                    className="w-full h-full object-cover filter brightness-[0.7] grayscale contrast-110"
+                  />
+                  <div className="absolute top-4 left-4 bg-foundry-black/90 px-2.5 py-0.5 border border-border-subtle" style={{ borderRadius: '2px' }}>
+                    <span className="font-mono text-[9px] text-line-red uppercase tracking-wider">{CATEGORY_LABELS[product.category] || product.category}</span>
+                  </div>
+                </div>
+
+                {/* Content text */}
+                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <h3 className="font-display font-bold text-xl text-foundry-concrete uppercase tracking-tight">{product.name}</h3>
+                    <p className="font-body text-sm text-text-secondary leading-relaxed line-clamp-2">{product.description}</p>
+                  </div>
+                  <div className="flex items-baseline gap-2 border-t border-border-subtle pt-4">
+                    <span className="font-mono text-[10px] text-text-secondary uppercase">From</span>
+                    <span className="font-mono font-bold text-xl text-line-red">{formatNaira(product.price_breaks[product.price_breaks.length - 1]?.price || product.base_price)}</span>
+                    <span className="font-mono text-[10px] text-text-secondary uppercase">/ unit</span>
+                  </div>
                 </div>
               </button>
             ))}
@@ -125,68 +176,70 @@ export default function LineClient({ products }: { products: Product[] }) {
       </section>
 
       {/* Live Pricing Calculator */}
-      <section id="pricing-calculator" className="py-16 bg-surface-secondary border-t-2 border-border-subtle">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="label-mono text-line-red block mb-3">Pricing Calculator</span>
-          <h2 className="heading-foundry text-3xl text-foundry-concrete mb-8">Build your order</h2>
+      <section id="pricing-calculator" className="py-24 lg:py-40 bg-surface-secondary border-t border-b border-border-subtle">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-12">
+            <span className="font-mono text-xs uppercase tracking-widest text-line-red block mb-3 font-semibold">02 / CALCULATE DISCOUNTS</span>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl text-foundry-concrete tracking-tight">Bulk Order Builder</h2>
+          </div>
 
           {!selectedProduct ? (
-            <div className="border-2 border-dashed border-border-subtle p-12 text-center" style={{ borderRadius: '2px' }}>
-              <p className="text-text-secondary font-mono text-sm uppercase">↑ Select a product above to calculate pricing</p>
+            <div className="border-2 border-dashed border-border-subtle p-16 text-center bg-surface-primary" style={{ borderRadius: '2px' }}>
+              <p className="text-text-secondary font-body text-base">Select a product model above to initialize the live pricing calculator.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-surface-primary p-6 lg:p-8 border-t-4 border-line-red" style={{ borderRadius: '2px' }}>
               {/* Left: Controls */}
               <div className="space-y-6">
-                <div className="p-5 border-2 border-line-red bg-surface-primary" style={{ borderRadius: '2px' }}>
-                  <div className="font-display font-bold text-lg text-foundry-concrete uppercase mb-1">{selectedProduct.name}</div>
-                  <div className="font-mono text-xs text-text-secondary uppercase">{CATEGORY_LABELS[selectedProduct.category]}</div>
+                <div className="p-5 border-t-4 border-line-red bg-surface-secondary" style={{ borderRadius: '2px' }}>
+                  <div className="font-display font-bold text-lg text-foundry-concrete uppercase tracking-tight">{selectedProduct.name}</div>
+                  <div className="font-mono text-xs text-text-secondary uppercase mt-1">{CATEGORY_LABELS[selectedProduct.category]} PRODUCTION</div>
                 </div>
 
                 {/* Quantity slider */}
-                <div>
-                  <label className="input-label">Quantity</label>
+                <div className="space-y-3">
+                  <label className="block font-body text-sm font-semibold text-text-secondary">Quantity</label>
                   <input
                     type="range"
                     min={selectedProduct.price_breaks[0]?.min_qty || 1}
                     max={Math.max(...selectedProduct.price_breaks.map(t => t.min_qty)) * 3}
                     value={quantity}
                     onChange={(e) => setQuantity(parseInt(e.target.value))}
-                    className="w-full accent-[#E4002B] h-2"
+                    className="w-full accent-[#E4002B] h-2 bg-surface-secondary rounded-lg appearance-none cursor-pointer"
                   />
-                  <div className="flex items-center gap-3 mt-2">
+                  <div className="flex items-center gap-3">
                     <input
                       type="number"
                       value={quantity}
                       onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                      className="input-foundry w-24 text-center font-mono font-bold"
+                      className="input-foundry w-28 text-center font-mono font-bold focus:ring-2 focus:ring-line-red focus:border-line-red"
                       min={1}
                     />
-                    <span className="label-mono text-text-secondary">units</span>
+                    <span className="font-mono text-xs text-text-secondary uppercase">UNITS</span>
                   </div>
                 </div>
 
                 {/* Tier ladder */}
-                <div>
-                  <label className="input-label mb-3 block">Bulk Discount Tiers</label>
+                <div className="space-y-3">
+                  <label className="block font-body text-sm font-semibold text-text-secondary">Bulk Discount Tiers</label>
                   <div className="space-y-2">
                     {selectedProduct.price_breaks.map((tier, i) => (
                       <div
                         key={i}
-                        className={`flex items-center justify-between p-3 border-2 transition-all duration-150 ${
+                        className={`flex items-center justify-between p-3 border-t-4 transition-all duration-150 ${
                           i === activeTierIndex
-                            ? 'border-line-red bg-line-red/10 shadow-stamp-sm -translate-x-px -translate-y-px'
-                            : 'border-border-subtle bg-surface-tertiary'
+                            ? 'border-t-line-red bg-line-red/10 shadow-stamp-sm -translate-x-px -translate-y-px'
+                            : 'border-t-border-subtle bg-surface-secondary'
                         }`}
                         style={{ borderRadius: '2px' }}
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
                           {i === activeTierIndex && <span className="w-2 h-2 bg-line-red" style={{ borderRadius: '1px' }} />}
-                          <span className="font-mono text-xs text-text-secondary uppercase">
+                          <span className="font-mono text-xs text-text-secondary">
                             {tier.min_qty}+ units
                           </span>
                         </div>
-                        <span className={`price-mono text-sm ${i === activeTierIndex ? 'text-line-red font-bold' : 'text-text-secondary'}`}>
+                        <span className={`font-mono text-sm ${i === activeTierIndex ? 'text-line-red font-bold' : 'text-text-secondary'}`}>
                           {formatNaira(tier.price)}/unit
                         </span>
                       </div>
@@ -196,27 +249,27 @@ export default function LineClient({ products }: { products: Product[] }) {
               </div>
 
               {/* Right: Live total + form */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Price summary */}
-                <div className="p-6 border-2 border-line-red bg-surface-primary" style={{ borderRadius: '2px' }}>
+                <div className="p-6 border-t-4 border-line-red bg-surface-secondary" style={{ borderRadius: '2px' }}>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                      <span className="label-mono text-text-secondary block mb-1">Unit Price</span>
-                      <span className="price-mono text-xl text-foundry-concrete">{formatNaira(unitPrice)}</span>
+                      <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest block">Unit Price</span>
+                      <span className="font-mono font-bold text-xl text-foundry-concrete">{formatNaira(unitPrice)}</span>
                     </div>
                     <div>
-                      <span className="label-mono text-text-secondary block mb-1">Quantity</span>
-                      <span className="price-mono text-xl text-foundry-concrete">{quantity}</span>
+                      <span className="font-mono text-[9px] text-text-secondary uppercase tracking-widest block">Total Quantity</span>
+                      <span className="font-mono font-bold text-xl text-foundry-concrete">{quantity} units</span>
                     </div>
                   </div>
                   <div className="divider-tear" style={{ margin: '0.75rem 0' }} />
                   <div className="flex items-center justify-between">
-                    <span className="label-mono text-text-secondary">Estimated Total</span>
-                    <span className="price-mono text-3xl text-line-red">{formatNaira(totalPrice)}</span>
+                    <span className="font-mono text-xs uppercase tracking-widest text-text-secondary">Estimated Total</span>
+                    <span className="font-mono font-bold text-3xl text-line-red">{formatNaira(totalPrice)}</span>
                   </div>
                   {quantity >= (selectedProduct.price_breaks[0]?.min_qty || 0) && quantity < (selectedProduct.price_breaks[selectedProduct.price_breaks.length - 1]?.min_qty || 0) && (
-                    <p className="font-mono text-[10px] text-text-secondary mt-2 uppercase">
-                      💡 Order {selectedProduct.price_breaks[activeTierIndex + 1]?.min_qty || ''}+ to unlock the next discount tier
+                    <p className="font-body text-xs text-text-secondary mt-3">
+                      💡 Increase order to {selectedProduct.price_breaks[activeTierIndex + 1]?.min_qty || ''} units to unlock the next bulk discount tier.
                     </p>
                   )}
                 </div>
@@ -224,31 +277,33 @@ export default function LineClient({ products }: { products: Product[] }) {
                 {/* Quote form */}
                 <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
                   <div>
-                    <label className="input-label">Full Name *</label>
-                    <input type="text" required className="input-foundry" placeholder="Your name" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} />
+                    <label className="block font-body text-sm font-semibold text-text-secondary mb-2">FULL NAME *</label>
+                    <input type="text" required className="input-foundry focus:ring-2 focus:ring-line-red focus:border-line-red" placeholder="Your name" value={formData.full_name} onChange={(e) => setFormData({ ...formData, full_name: e.target.value })} />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="input-label">Phone *</label>
-                      <input type="tel" required className="input-foundry" placeholder="+234..." value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                      <label className="block font-body text-sm font-semibold text-text-secondary mb-2">PHONE *</label>
+                      <input type="tel" required className="input-foundry focus:ring-2 focus:ring-line-red focus:border-line-red" placeholder="+234..." value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                     </div>
                     <div>
-                      <label className="input-label">Email</label>
-                      <input type="email" className="input-foundry" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                      <label className="block font-body text-sm font-semibold text-text-secondary mb-2">EMAIL</label>
+                      <input type="email" className="input-foundry focus:ring-2 focus:ring-line-red focus:border-line-red" placeholder="email@example.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                     </div>
                   </div>
                   <div>
-                    <label className="input-label">Design Notes</label>
-                    <textarea rows={3} className="input-foundry" placeholder="Describe your design or paste a link to your file..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+                    <label className="block font-body text-sm font-semibold text-text-secondary mb-2">DESIGN NOTES</label>
+                    <textarea rows={3} className="input-foundry focus:ring-2 focus:ring-line-red focus:border-line-red" placeholder="Specify ink colors, apparel blank weights, or details..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
                   </div>
-                  <button type="submit" className="btn-foundry w-full" style={{ backgroundColor: '#E4002B' }}>Get a Quote</button>
-                  <p className="font-mono text-[10px] text-text-secondary text-center uppercase tracking-wider">We&apos;ll respond within 24 hours</p>
+                  <button type="submit" className="btn-foundry w-full text-white font-mono text-sm font-semibold tracking-wider hover:bg-white hover:text-line-red hover:border-white transition-all duration-150 py-3" style={{ backgroundColor: '#E4002B', borderColor: '#E4002B' }}>
+                    SUBMIT QUOTE REQUEST
+                  </button>
+                  <p className="font-mono text-[10px] text-text-secondary text-center uppercase tracking-widest mt-3">We will compile your specs and respond within 24 hours</p>
                 </form>
               </div>
             </div>
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }

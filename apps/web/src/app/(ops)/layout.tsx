@@ -41,7 +41,7 @@ function OpsNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 font-mono text-xs uppercase tracking-wider transition-all duration-150 ${
+              className={`flex items-center gap-3 px-3 py-2.5 font-body text-sm font-medium tracking-wide transition-all duration-150 ${
                 isActive
                   ? 'bg-surface-tertiary text-foundry-orange border-l-2 border-foundry-orange -ml-px'
                   : 'text-text-secondary hover:text-foundry-concrete hover:bg-surface-tertiary'
