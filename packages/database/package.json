@@ -1,0 +1,10 @@
+{
+  "name": "@foundry-kiln/database",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "db:migrate": "echo 'Run migrations via Supabase CLI: supabase db push'",
+    "db:seed": "echo 'Run seed via Supabase CLI: supabase db seed'",
+    "db:types": "supabase gen types typescript --local > src/types.ts"
+  }
+}
